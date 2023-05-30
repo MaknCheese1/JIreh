@@ -5,11 +5,11 @@ from entidades.usuario import Usuario
 
 
 class DT_Usuario:
-    _SELECT = "SELECT * FROM seguridad.usuario where estado <> 3"
-    _INSERT = "INSERT INTO seguridad.usuario (nombre, apellido, nombreusuario, clave, fecha_creacion, estado) values (%s, %s, %s, %s, now(), 1)"
+    _SELECT = "SELECT * FROM JirehBD.usuario where estado <> 3"
+    _INSERT = "INSERT INTO JirehBD.usuario (nombre, apellido, nombreusuario, clave, fecha_creacion, estado) values (%s, %s, %s, %s, now(), 1)"
     _UPDATE = "UPDATE usuario set nombre=%s, apellido = %s, nombreusuario = %s, clave = %s where idusuario = %s"
     _DELETE = "UPDATE usuario set estado=3 where idusuario = %s"
-    _BUSCAR = "SELECT * FROM seguridad.usuario where nombreusuario like %s and estado<>3"
+    _BUSCAR = "SELECT * FROM JirehBD.usuario where nombreusuario like %s and estado<>3"
     _cursor = None
 
     @classmethod
