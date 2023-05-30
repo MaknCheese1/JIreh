@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>vw_cliente</class>
+ <widget class="QMainWindow" name="vw_cliente">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>934</width>
+    <height>621</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cliente</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>941</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Registro Usuario</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>80</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ID Cliente</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>120</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ID Restaurante</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>160</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Nombre</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>200</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Telefono</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>240</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Direccion</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_idCliente">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>70</y>
+       <width>291</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_nombreCliente">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>150</y>
+       <width>291</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_telefonoCliente">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>190</y>
+       <width>291</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_direccionCliente">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>230</y>
+       <width>291</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cmb_idRestaurante">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>110</y>
+       <width>291</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_nuevoCliente">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>80</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+background-color:#aa5ff;
+}
+QPushButton{
+background-color:#aa5ff;
+border-top-left:20px;
+border-bottom-left-radius:20px;
+}
+QPushButton:hover{
+background-color:green;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Nuevo</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_guardarCliente">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>130</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+background-color:#aa5ff;
+}
+QPushButton{
+background-color:#aa5ff;
+border-top-left:20px;
+border-bottom-left-radius:20px;
+}
+QPushButton:hover{
+background-color:green;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Guardar</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_editarCliente">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>180</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+background-color:#aa5ff;
+}
+QPushButton{
+background-color:#aa5ff;
+border-top-left:20px;
+border-bottom-left-radius:20px;
+}
+QPushButton:hover{
+background-color:yellow;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Editar</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_eliminarCliente">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>230</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+background-color:#aa5ff;
+}
+QPushButton{
+background-color:#aa5ff;
+border-top-left:20px;
+border-bottom-left-radius:20px;
+}
+QPushButton:hover{
+background-color:red;
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Eliminar</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</iconset>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>270</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tipo de cliente</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_tpCliente">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>270</y>
+       <width>291</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>941</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QTableWidget" name="jtable_cliente">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>791</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>ID_Cliente</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>ID_Restaurante</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nombre</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Telefono</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Direccion</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Tipo Cliente</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

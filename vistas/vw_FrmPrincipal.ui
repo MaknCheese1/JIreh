@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>vw_principal</class>
+ <widget class="QMainWindow" name="vw_principal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>983</width>
+    <height>715</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>983</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuUsuario">
+    <property name="title">
+     <string>Usuario</string>
+    </property>
+    <addaction name="actionGestionar_Usuario"/>
+   </widget>
+   <widget class="QMenu" name="menuRestaurante">
+    <property name="title">
+     <string>Restaurante</string>
+    </property>
+    <addaction name="actionGestionar_Proveedores"/>
+    <addaction name="actionGestionar_Restaurantes"/>
+    <addaction name="actionGestionar_Clientes"/>
+   </widget>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionConfigurar_Menu"/>
+    <addaction name="actionConfigurar_Menu_Detalle"/>
+    <addaction name="actionConfigurar_Menu_Tipo"/>
+   </widget>
+   <addaction name="menuUsuario"/>
+   <addaction name="menuRestaurante"/>
+   <addaction name="menuMenu"/>
+  </widget>
+  <action name="actionGestionar_Usuario">
+   <property name="text">
+    <string>Gestionar Usuario</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Proveedores">
+   <property name="text">
+    <string>Gestionar Proveedores</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Restaurantes">
+   <property name="text">
+    <string>Gestionar Restaurantes</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Clientes">
+   <property name="text">
+    <string>Gestionar Clientes</string>
+   </property>
+  </action>
+  <action name="actionConfigurar_Menu">
+   <property name="text">
+    <string>Configurar Menu</string>
+   </property>
+  </action>
+  <action name="actionConfigurar_Menu_Detalle">
+   <property name="text">
+    <string>Configurar Menu Detalle</string>
+   </property>
+  </action>
+  <action name="actionConfigurar_Menu_Tipo">
+   <property name="text">
+    <string>Configurar Menu Tipo</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
