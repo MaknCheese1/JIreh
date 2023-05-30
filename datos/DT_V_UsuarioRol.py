@@ -3,7 +3,7 @@ from vistas_db.v_usuario_rol import V_Usuario_Rol
 
 
 class DT_V_UsuarioRol:
-    _SELECT = "SELECT * FROM seguridad.VW_Usuario_Rol"
+    _SELECT = "SELECT * FROM JirehBD.v_usuario_rol"
 
     _cursor = None
 
