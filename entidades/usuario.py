@@ -96,5 +96,5 @@ class Usuario:
 
 
 if __name__ == '__main__':
-    usuario1 = Usuario(nombre='Jorge', apellido='Morales', nombreusuario='jmorales', clave='1234')
+    usuario1 = Usuario(nombre='Mariano', apellido='Lacayo', nombreusuario='mlacayo', clave='1234')
     print(usuario1)
