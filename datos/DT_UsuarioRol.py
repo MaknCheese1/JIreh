@@ -5,8 +5,8 @@ from .conexion import Conexion
 
 
 class DT_UsuarioRol:
-    _SELECT = "SELECT * FROM seguridad.usuario_rol"
-    _INSERT = "INSERT INTO seguridad.usuario_rol (idUsuario, idRol) values (%s,%s)"
+    _SELECT = "SELECT * FROM JirehBD.usuario_rol"
+    _INSERT = "INSERT INTO JirehBD.usuario_rol (idUsuario, idRol) values (%s,%s)"
 
     _cursor = None
 
