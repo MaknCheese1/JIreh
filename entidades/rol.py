@@ -1,49 +1,45 @@
-import  copy
+import copy
+
 
 class Rol:
-    def __init__(self,RolID=None,Rol_nombre=None,Estado=None):
-        self._RolID = RolID
-        self._Rol_nombre = Rol_nombre
-        self._Estado = Estado
+    def __init__(self, idrol=None, descripcion=None):
+        self._idrol=idrol
+        self._descripcion=descripcion
 
     def __str__(self):
         return f'''
-        RolID: {self._RolID},
-        Rol_nombre: {self._Rol_nombre},
-        Estado: {self._Estado}
+        idrol: {self._idrol},
+        descripcion: {self._descripcion},
+        
         '''
 
     def __getitem__(self, item):
-        u = copy.copy(self)
-        u.RolID = u._RolID
-        u.Rol_nombre = u._Rol_nombre
-        u.Estado = u._Estado
+        r = copy.copy(self)
+        r.idrol = r._idrol
+        r.descripcion = r._descripcion
+
+        return r
+
+
+    #GET
+    @property
+    def idrol(self):
+        return self._idrol
+
+    #SET
+    @idrol.setter
+    def idrol(self, idrol):
+        self._idrol=idrol
 
     @property
-    def RolID(self):
-        return self._RolID
+    def descripcion(self):
+        return self._descripcion
 
-    @RolID.setter
-    def RolID(self, RolID):
-        self._RolID = RolID
-
-    @property
-    def Rol_nombre(self):
-        return self._Rol_nombre
-
-    @Rol_nombre.setter
-    def Rol_nombre(self, Rol_nombre):
-        self._Rol_nombre = Rol_nombre
-
-    @property
-    def Estado(self):
-        return self._Estado
-
-    @Estado.setter
-    def Estado(self, Estado):
-        self._Estado = Estado
+    @descripcion.setter
+    def descripcion(self, descripcion):
+        self._descripcion=descripcion
 
 
 if __name__ == '__main__':
-    rol1 = Rol(Rol_nombre='Cajero')
+    rol1 = Rol(descripcion='administrador')
     print(rol1)
