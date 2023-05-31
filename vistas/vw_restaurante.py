@@ -48,6 +48,8 @@ class vw_listar_restaurantes_Widget(QtWidgets.QMainWindow,vw_frmRestaurante.Ui_v
         direccionRestedit = self.txt_direccionRest.text()
         nrucRestedit = self.txt_rucRest.text()
         pwebRestedit = self.txt_pagWebrest.text()
+        idRestedit = self.txt_idRest.text()
+
 
         Restaurante.Nombre_restaurante = nombreRestedit
         Restaurante.Telefono_restaurante = telefonoRestedit
@@ -55,6 +57,7 @@ class vw_listar_restaurantes_Widget(QtWidgets.QMainWindow,vw_frmRestaurante.Ui_v
         Restaurante.Direccion = direccionRestedit
         Restaurante.Numero_ruc = nrucRestedit
         Restaurante.Pagina_web = pwebRestedit
+        Restaurante.RestauranteID = idRestedit
         Dt_Restaurante.actualizarRestaurante(Restaurante)
 
     def eliminarRestClick(self):
@@ -63,8 +66,8 @@ class vw_listar_restaurantes_Widget(QtWidgets.QMainWindow,vw_frmRestaurante.Ui_v
 
     def listarRest(self):
         restaurantes = Dt_Restaurante.listarRestaurante()
-        indixes = len(restaurantes)
-        self.jtable_Restaurante.setRowCount(indixes)
+        indexes = len(restaurantes)
+        self.jtable_Restaurante.setRowCount(indexes)
         tablerow = 0
 
         for row in restaurantes:
@@ -75,7 +78,6 @@ class vw_listar_restaurantes_Widget(QtWidgets.QMainWindow,vw_frmRestaurante.Ui_v
             self.jtable_Restaurante.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row.Direccion)))
             self.jtable_Restaurante.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row.Numero_ruc)))
             self.jtable_Restaurante.setItem(tablerow, 6, QtWidgets.QTableWidgetItem(str(row.Pagina_web)))
-            self.jtable_Restaurante.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row.Estado)))
             tablerow += 1
 
 

@@ -3,8 +3,8 @@ from .conexion import Conexion
 from entidades.cliente import Cliente
 
 class Dt_Cliente:
-    _SELECT = 'SELECT * FROM JirehBD.Cliente where estado <> 3'
-    _INSERT = 'insert into JirehBD.Cliente(RestauranteID,Nombre_cliente,Telefono_cliente,Direccion,Tipo_cliente,Estado) values(RestauranteID=%s,Nombre_cliente=%s,Telefono_cliente=%s,Direccion=%s,Tipo_cliente=%s,1)'
+    _SELECT = 'SELECT * FROM JirehDB.Cliente where Estado <> 3'
+    _INSERT = 'insert into JirehDB.Cliente(RestauranteID,Nombre_cliente,Telefono_cliente,Direccion,Tipo_cliente,Estado) values(RestauranteID=%s,Nombre_cliente=%s,Telefono_cliente=%s,Direccion=%s,Tipo_cliente=%s,1)'
     _UPDATE = "UPDATE Cliente set RestauranteID=%s,Nombre_cliente=%s,Telefono_cliente=%s,Direccion=%s,Tipo_cliente=%s where ClienteID=%s"
     _DELETE = "UPDATE Cliente set Estado=3 where ClienteID=%s"
     @classmethod
@@ -19,7 +19,7 @@ class Dt_Cliente:
                         x['Tipo_cliente'])
             clientes.append(c)
             print('clientes', clientes)
-            return clientes
+        return clientes
 
     @classmethod
     def guardarClient(cls,cliente):

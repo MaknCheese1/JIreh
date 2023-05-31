@@ -53,6 +53,7 @@
      <string>Usuario</string>
     </property>
     <addaction name="actionGestionar_Usuario"/>
+    <addaction name="actionGestionar_Rol"/>
    </widget>
    <widget class="QMenu" name="menuRestaurante">
     <property name="title">
@@ -70,9 +71,16 @@
     <addaction name="actionConfigurar_Menu_Detalle"/>
     <addaction name="actionConfigurar_Menu_Tipo"/>
    </widget>
+   <widget class="QMenu" name="menuSalir">
+    <property name="title">
+     <string>Otros</string>
+    </property>
+    <addaction name="actionSalir"/>
+   </widget>
    <addaction name="menuUsuario"/>
    <addaction name="menuRestaurante"/>
    <addaction name="menuMenu"/>
+   <addaction name="menuSalir"/>
   </widget>
   <action name="actionGestionar_Usuario">
    <property name="text">
@@ -107,6 +115,16 @@
   <action name="actionConfigurar_Menu_Tipo">
    <property name="text">
     <string>Configurar Menu Tipo</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Rol">
+   <property name="text">
+    <string>Gestionar Rol</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
    </property>
   </action>
  </widget>

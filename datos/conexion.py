@@ -4,7 +4,7 @@ import pymysql.cursors
 
 #Creaciones de clases de mi conexion a la base de datos
 class Conexion:
-    _DATABASE = 'JirehBD'
+    _DATABASE = 'JirehDB'
     _USERNAME = 'pa'
     _PASSWORD = '1234'
     _HOST = 'localhost'

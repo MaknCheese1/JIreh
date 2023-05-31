@@ -4,8 +4,8 @@ from .conexion import  Conexion
 from entidades.restaurante import Restaurante
 
 class Dt_Restaurante:
-    _SELECT = "SELECT * FROM JirehBD.Restaurante where estado <> 3"
-    _INSERT = "INSERT INTO JirehBD.Restaurante (Nombre_restaurante,Telefono_restaurante,Correo_restaurante,Direccion,Numero_ruc,Pagina_web,Estado) values (%s,%s,%s,%s,%s,%s,1)"
+    _SELECT = "SELECT * FROM JirehDB.Restaurante where estado <> 3"
+    _INSERT = "INSERT INTO JirehDB.Restaurante (Nombre_restaurante,Telefono_restaurante,Correo_restaurante,Direccion,Numero_ruc,Pagina_web,Estado) values (%s,%s,%s,%s,%s,%s,1)"
     _UPDATE = "UPDATE Restaurante set Nombre_restaurante=%s,Telefono_restaurante=%s,Correo_restaurante=%s,Direccion=%s,Numero_ruc=%s,Pagina_web=%s where RestauranteID=%s"
     _DELETE = "UPDATE Restaurante set Estado=3 where RestauranteID=%s"
     @classmethod
@@ -20,7 +20,7 @@ class Dt_Restaurante:
                             x['Correo_restaurante'], x['Direccion'], x['Numero_ruc'], x['Pagina_web'])
             restaurantes.append(r)
             print('restaurantes', restaurantes)
-            return restaurantes
+        return restaurantes
 
     @classmethod
     def guardarRestaurante(cls, restaurante):

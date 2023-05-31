@@ -34,6 +34,7 @@ class vw_listar_cliente_Widget(QtWidgets.QMainWindow,vw_frmCliente.Ui_vw_cliente
             self.jtable_cliente.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(row.Telefono_cliente)))
             self.jtable_cliente.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row.Direccion)))
             self.jtable_cliente.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row.Tipo_cliente)))
+            tablerow += 1
 
     def btnGuardarClientClick(self):
         nombreClient = self.txt_nombreCliente.text()
@@ -76,12 +77,14 @@ class vw_listar_cliente_Widget(QtWidgets.QMainWindow,vw_frmCliente.Ui_vw_cliente
         # Obteniendo fila
         rowC = self.jtable_cliente.currentRow()
         # Obteniendo los valores de la tabla
+        id_cliente = self.jtable_cliente.item(rowC,0).text()
         Nombre_cliente = self.jtable_cliente.item(rowC,2).text()
         Telefono_cliente = self.jtable_cliente.item(rowC, 3).text()
         Direccion_cliente = self.jtable_cliente.item(rowC, 4 ).text()
         Tipo_cliente = self.jtable_cliente.item(rowC, 5).text()
 
         # Se muestra en el formulario
+        self.txt_idCliente.setText(id_cliente)
         self.txt_nombreCliente.setText(Nombre_cliente)
         self.txt_telefonoCliente.setText(Telefono_cliente)
         self.txt_direccionCliente.setText(Direccion_cliente)
