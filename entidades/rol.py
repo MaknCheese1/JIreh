@@ -1,49 +1,40 @@
 import  copy
 
 class Rol:
-    def __init__(self,RolID=None,Rol_nombre=None,Estado=None):
-        self._RolID = RolID
-        self._Rol_nombre = Rol_nombre
-        self._Estado = Estado
+    def __init__(self,idrol=None,descripcion=None):
+        self._RolID = idrol
+        self._Rol_nombre = descripcion
+
 
     def __str__(self):
         return f'''
-        RolID: {self._RolID},
-        Rol_nombre: {self._Rol_nombre},
-        Estado: {self._Estado}
+        idrol: {self._RolID},
+        descripcion: {self._Rol_nombre},
         '''
 
     def __getitem__(self, item):
         u = copy.copy(self)
-        u.RolID = u._RolID
-        u.Rol_nombre = u._Rol_nombre
-        u.Estado = u._Estado
+        u.idrol = u._RolID
+        u.descripcion = u._Rol_nombre
+
 
     @property
-    def RolID(self):
+    def idrol(self):
         return self._RolID
 
-    @RolID.setter
-    def RolID(self, RolID):
-        self._RolID = RolID
+    @idrol.setter
+    def idrol(self, idrol):
+        self._RolID = idrol
 
     @property
-    def Rol_nombre(self):
+    def descripcion(self):
         return self._Rol_nombre
 
-    @Rol_nombre.setter
-    def Rol_nombre(self, Rol_nombre):
-        self._Rol_nombre = Rol_nombre
-
-    @property
-    def Estado(self):
-        return self._Estado
-
-    @Estado.setter
-    def Estado(self, Estado):
-        self._Estado = Estado
+    @descripcion.setter
+    def descripcion(self, descripcion):
+        self._Rol_nombre = descripcion
 
 
 if __name__ == '__main__':
-    rol1 = Rol(Rol_nombre='Cajero')
+    rol1 = Rol(descripcion='Cajero')
     print(rol1)
