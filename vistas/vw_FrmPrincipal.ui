@@ -54,6 +54,7 @@
     </property>
     <addaction name="actionGestionar_Usuario"/>
     <addaction name="actionGestionar_Rol"/>
+    <addaction name="actionListar_Usuario"/>
    </widget>
    <widget class="QMenu" name="menuRestaurante">
     <property name="title">
@@ -125,6 +126,16 @@
   <action name="actionSalir">
    <property name="text">
     <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionListar_Rol">
+   <property name="text">
+    <string>Listar Rol</string>
+   </property>
+  </action>
+  <action name="actionListar_Usuario">
+   <property name="text">
+    <string>Listar Usuario</string>
    </property>
   </action>
  </widget>

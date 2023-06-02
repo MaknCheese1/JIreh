@@ -54,8 +54,13 @@ class Ui_vw_principal(object):
         self.actionGestionar_Rol.setObjectName("actionGestionar_Rol")
         self.actionSalir = QtGui.QAction(parent=vw_principal)
         self.actionSalir.setObjectName("actionSalir")
+        self.actionListar_Rol = QtGui.QAction(parent=vw_principal)
+        self.actionListar_Rol.setObjectName("actionListar_Rol")
+        self.actionListar_Usuario = QtGui.QAction(parent=vw_principal)
+        self.actionListar_Usuario.setObjectName("actionListar_Usuario")
         self.menuUsuario.addAction(self.actionGestionar_Usuario)
         self.menuUsuario.addAction(self.actionGestionar_Rol)
+        self.menuUsuario.addAction(self.actionListar_Usuario)
         self.menuRestaurante.addAction(self.actionGestionar_Proveedores)
         self.menuRestaurante.addAction(self.actionGestionar_Restaurantes)
         self.menuRestaurante.addAction(self.actionGestionar_Clientes)
@@ -87,6 +92,8 @@ class Ui_vw_principal(object):
         self.actionConfigurar_Menu_Tipo.setText(_translate("vw_principal", "Configurar Menu Tipo"))
         self.actionGestionar_Rol.setText(_translate("vw_principal", "Gestionar Rol"))
         self.actionSalir.setText(_translate("vw_principal", "Salir"))
+        self.actionListar_Rol.setText(_translate("vw_principal", "Listar Rol"))
+        self.actionListar_Usuario.setText(_translate("vw_principal", "Listar Usuario"))
 
 
 if __name__ == "__main__":
