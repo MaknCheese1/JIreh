@@ -8,7 +8,9 @@ import vw_menuDetalle
 import  vw_menuTipo
 import  vw_proveedor
 import vw_menu
-
+import vw_lista_usuariosW
+import  vw_guardarUsuario
+import  vw_asignarRol
 class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
     def __init__(self,parent = None):
         super(MainWindow,self).__init__(parent)
@@ -21,6 +23,9 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
         self.lista_MenuTip = None
         self.lista_Proveedor = None
         self.lista_Menu = None
+        self.lista_lstUSuarioW = None
+        self.lista_Guardaruser = None
+        self.lista_Guardarol = None
 
 
         # Llamando el formulario cliente
@@ -35,6 +40,15 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
         self.actionGestionar_Proveedores.triggered.connect(self.loadProveedor)
         # Llamando el formulario Menu
         self.actionConfigurar_Menu.triggered.connect(self.loadMenu)
+        # Llamando el forrmulario listar usuario
+        self.actionListar_Usuario.triggered.connect(self.loadLstUsuarioW)
+        # Llamando el forrmulario guardar usuario
+        self.actionGestionar_Usuario.triggered.connect(self.LoadGuardarUser)
+        # Llamando el forrmulario guardar Rol
+        self.actionGestionar_Rol.triggered.connect(self.LoadGuardarRol)
+
+
+
 
 
 
@@ -121,6 +135,48 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
                 self.lista_Menu = vw_menu.vw_listar_menu_Widget()
                 self.verticalLayout.addWidget(self.lista_Menu)
                 self.showWindows = self.lista_Menu
+
+    def loadLstUsuarioW(self):
+        if self.showWindows is None:
+            self.lista_lstUSuarioW = vw_lista_usuariosW.vw_lista_usuarios_Widget()
+            self.verticalLayout.addWidget(self.lista_lstUSuarioW)
+            self.showWindows = self.lista_lstUSuarioW
+        else:
+            if self.showWindows == self.lista_lstUSuarioW:
+                return self.lista_lstUSuarioW
+            else:
+                self.showWindows.close()
+                self.lista_lstUSuarioW = vw_lista_usuariosW.vw_lista_usuarios_Widget()
+                self.verticalLayout.addWidget(self.lista_lstUSuarioW)
+                self.showWindows = self.lista_lstUSuarioW
+
+    def LoadGuardarUser(self):
+        if self.showWindows is None:
+            self.lista_Guardaruser = vw_guardarUsuario.vw_guardar_usuario_Widget()
+            self.verticalLayout.addWidget(self.lista_Guardaruser)
+            self.showWindows = self.lista_Guardaruser
+        else:
+            if self.showWindows == self.lista_Guardaruser:
+                return self.lista_Guardaruser
+            else:
+                self.showWindows.close()
+                self.lista_Guardaruser = vw_guardarUsuario.vw_guardar_usuario_Widget()
+                self.verticalLayout.addWidget(self.lista_Guardaruser)
+                self.showWindows = self.lista_Guardaruser
+
+    def LoadGuardarRol(self):
+        if self.showWindows is None:
+            self.lista_Guardarol = vw_asignarRol.vw_guardar_rol_Widget()
+            self.verticalLayout.addWidget(self.lista_Guardarol)
+            self.showWindows = self.lista_Guardarol
+        else:
+            if self.showWindows == self.lista_Guardarol:
+                return self.lista_Guardarol
+            else:
+                self.showWindows.close()
+                self.lista_Guardarol = vw_asignarRol.vw_guardar_rol_Widget()
+                self.verticalLayout.addWidget(self.lista_Guardarol)
+                self.showWindows = self.lista_Guardarol
 
 
 if __name__ == '__main__':
