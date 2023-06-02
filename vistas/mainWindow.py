@@ -9,8 +9,8 @@ import  vw_menuTipo
 import  vw_proveedor
 import vw_menu
 import vw_lista_usuariosW
-import  vw_guardarUsuario
-import  vw_asignarRol
+import  vw_frmGuardarUsuario
+import  vw_frmAsignarRol
 class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
     def __init__(self,parent = None):
         super(MainWindow,self).__init__(parent)
@@ -152,7 +152,7 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
 
     def LoadGuardarUser(self):
         if self.showWindows is None:
-            self.lista_Guardaruser = vw_guardarUsuario.VW_frmGuardarUsuario()
+            self.lista_Guardaruser = vw_frmGuardarUsuario.VW_frmGuardarUsuario()
             self.verticalLayout.addWidget(self.lista_Guardaruser)
             self.showWindows = self.lista_Guardaruser
         else:
@@ -160,13 +160,13 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
                 return self.lista_Guardaruser
             else:
                 self.showWindows.close()
-                self.lista_Guardaruser = vw_guardarUsuario.VW_frmGuardarUsuario()
+                self.lista_Guardaruser = vw_frmGuardarUsuario.VW_frmGuardarUsuario()
                 self.verticalLayout.addWidget(self.lista_Guardaruser)
                 self.showWindows = self.lista_Guardaruser
 
     def LoadGuardarRol(self):
         if self.showWindows is None:
-            self.lista_Guardarol = vw_asignarRol.vw_frmAsignarRolW()
+            self.lista_Guardarol = vw_frmAsignarRol.vw_frmAsignarRolW()
             self.verticalLayout.addWidget(self.lista_Guardarol)
             self.showWindows = self.lista_Guardarol
         else:
@@ -174,7 +174,7 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
                 return self.lista_Guardarol
             else:
                 self.showWindows.close()
-                self.lista_Guardarol = vw_asignarRol.vw_frmAsignarRolW()
+                self.lista_Guardarol = vw_frmAsignarRol.vw_frmAsignarRolW()
                 self.verticalLayout.addWidget(self.lista_Guardarol)
                 self.showWindows = self.lista_Guardarol
 
