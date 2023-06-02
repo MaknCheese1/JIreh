@@ -6,9 +6,9 @@ from entidades.usuario import Usuario
 
 class DT_Usuario:
     _SELECT = "SELECT * FROM JirehDB.usuario where estado <> 3"
-    _INSERT = "INSERT INTO JirehDB.usuario (nombre, apellido, nombreusuario, clave, fecha_creacion, estado) values (%s, %s, %s, %s, now(), 1)"
-    _UPDATE = "UPDATE usuario set nombre=%s, apellido = %s, nombreusuario = %s, clave = %s where idusuario = %s"
-    _DELETE = "UPDATE usuario set estado=3 where idusuario = %s"
+    _INSERT = "INSERT INTO JirehDB.usuario (nombre,apellido,nombreusuario,clave,fecha_creacion,estado) values (%s,%s,%s,%s,now(),1)"
+    _UPDATE = "UPDATE usuario set nombre=%s,apellido=%s,nombreusuario=%s,clave=%s where idusuario=%s"
+    _DELETE = "UPDATE usuario set estado=3 where idusuario=%s"
     _BUSCAR = "SELECT * FROM JirehDB.usuario where nombreusuario like %s and estado<>3"
     _cursor = None
 
@@ -40,7 +40,7 @@ class DT_Usuario:
 
     @classmethod
     def guardarUsuario(cls, usuario):
-        with Conexion.getConnection():
+        with Conexion.getConnection() as conexion:
             with Conexion.getCursor() as cursor:
 
                 try:
@@ -49,7 +49,7 @@ class DT_Usuario:
                     valores = (usuario.nombre, usuario.apellido, usuario.nombreusuario, usuario.clave)
                     cursor.execute(cls._INSERT, valores)
                     print(f'Usuario insertado: {usuario}')
-                    Conexion.commit()
+                    conexion.commit()
                     return cursor.rowcount
                 except Exception as e:
                     print(f'Exception {e}')
@@ -64,7 +64,7 @@ class DT_Usuario:
                     valores = (usuario.nombre, usuario.apellido, usuario.nombreusuario, usuario.clave, usuario.idusuario)
                     cursor.execute(cls._UPDATE, valores)
                     print('Actualizando usuario')
-
+                    conexion.commit()
                     return cursor.rowcount
                 except Exception as e:
                     print(f'Excepción al editar: {e.__traceback__}')
@@ -92,7 +92,4 @@ if __name__ == '__main__':
     users = DT_Usuario.listarUsuario()
     for u in users:
         print(u)
-    #INSERTAR REGISTRO
-    # usuario1 = Usuario(nombre='miguel', apellido='cervantes', nombreusuario='elQuijote', clave='123', fecha_creacion='2023-03-10')
-    # insertar = DT_Usuario.guardarUsuario(usuario1)
-    # print(f'Usuario insertado : {insertar}')
+

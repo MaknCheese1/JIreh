@@ -7,8 +7,8 @@ from .conexion import Conexion
 class DT_Rol:
     _SELECT = "SELECT * FROM JirehDB.rol"
     _INSERT = "INSERT INTO JirehDB.rol (descripcion) values (%s)"
-    _UPDATE = "UPDATE JirehDB.rol set descripcion=%s where idrol = %s"
-    _DELETE = "DELETE FROM JirehDB.rol where idrol = %s"
+    _UPDATE = "UPDATE JirehDB.rol set descripcion=%s where idrol=%s"
+    _DELETE = "DELETE FROM JirehDB.rol where idrol=%s"
     _cursor = None
 
     @classmethod
@@ -17,9 +17,9 @@ class DT_Rol:
         cursor.execute(cls._SELECT)
         resultado = cursor.fetchall()
         roles = []
-        for r in resultado:
-            rol = Rol(r['idrol'], r['descripcion'])
-            roles.append(rol)
+        for z in resultado:
+            a = Rol(z['idrol'], z['descripcion'])
+            roles.append(a)
         print('roles', roles)
         return roles
 
@@ -72,9 +72,9 @@ class DT_Rol:
 
 
 if __name__ == '__main__':
-    roles = DT_Rol.listarRol()
-    for r in roles:
-        print(r)
+    rols = DT_Rol.listarRol()
+    for a in rols:
+        print(a)
     #INSERTAR REGISTRO
     # usuario1 = Usuario(nombre='miguel', apellido='cervantes', nombreusuario='elQuijote', clave='123', fecha_creacion='2023-03-10')
     # insertar = DT_Usuario.guardarUsuario(usuario1)

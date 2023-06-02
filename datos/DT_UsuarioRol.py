@@ -7,6 +7,7 @@ from .conexion import Conexion
 class DT_UsuarioRol:
     _SELECT = "SELECT * FROM JirehDB.usuario_rol"
     _INSERT = "INSERT INTO JirehDB.usuario_rol (idUsuario, idRol) values (%s,%s)"
+    _DELETE = "DELETE FROM JirehDB.usuario_rol where idRol=%s, idUsuario=%s)"
 
     _cursor = None
 
@@ -29,7 +30,7 @@ class DT_UsuarioRol:
 
                 try:
 
-                    print(f'Rol asinado: {usuario_rol.idUsuario, usuario_rol.idRol}')
+                    print(f'Rol asignado: {usuario_rol.idUsuario, usuario_rol.idRol}')
                     valores = (usuario_rol.idUsuario, usuario_rol.idRol)
                     cursor.execute(cls._INSERT, valores)
                     print(f'Rol insertado: {usuario_rol.idUsuario, usuario_rol.idRol}')
@@ -39,26 +40,14 @@ class DT_UsuarioRol:
                     print(f'Exception {e}')
 
 
-    @classmethod
-    def actualizarRol(cls, rol):
 
+
+    @classmethod
+    def eliminarUsuarioRol(cls, usuario_rol):
         with Conexion.getConnection() as conexion:
             with Conexion.getCursor() as cursor:
                 try:
-                    valores = (rol.descripcion)
-                    cursor.execute(cls._UPDATE, valores)
-                    print('Actualizando rol')
-                    conexion.commit()
-                    return cursor.rowcount
-                except Exception as e:
-                    print(f'Excepción al editar: {e.__traceback__}')
-
-    @classmethod
-    def eliminarRol(cls, rol):
-        with Conexion.getConnection() as conexion:
-            with Conexion.getCursor() as cursor:
-                try:
-                    valores = (rol.idrol)
+                    valores = (usuario_rol.idRol, usuario_rol.idUsuario)
                     print("Eliminando Rol")
                     cursor.execute(cls._DELETE,valores)
                     print("Rol eliminado")
@@ -74,7 +63,3 @@ if __name__ == '__main__':
     roles = DT_UsuarioRol.listarRol()
     for r in roles:
         print(r)
-    #INSERTAR REGISTRO
-    # usuario1 = Usuario(nombre='miguel', apellido='cervantes', nombreusuario='elQuijote', clave='123', fecha_creacion='2023-03-10')
-    # insertar = DT_Usuario.guardarUsuario(usuario1)
-    # print(f'Usuario insertado : {insertar}')
