@@ -5,10 +5,10 @@ from .conexion import Conexion
 
 
 class DT_Rol:
-    _SELECT = "SELECT * FROM JirehBD.rol"
-    _INSERT = "INSERT INTO JirehBD.rol (descripcion) values (%s)"
-    _UPDATE = "UPDATE JirehBD.rol set descripcion=%s where idrol = %s"
-    _DELETE = "DELETE FROM JirehBD.rol where idrol = %s"
+    _SELECT = "SELECT * FROM JirehDB.rol"
+    _INSERT = "INSERT INTO JirehDB.rol (descripcion) values (%s)"
+    _UPDATE = "UPDATE JirehDB.rol set descripcion=%s where idrol = %s"
+    _DELETE = "DELETE FROM JirehDB.rol where idrol = %s"
     _cursor = None
 
     @classmethod
