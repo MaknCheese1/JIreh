@@ -33,24 +33,30 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
                 self.cbxRol.addItem(a.descripcion, a.idrol)
         except Exception as e:
             print(f'Ocurrió una excepción {e}')
+    
+    def obtenerUsuarioSeleccionado(self):
+    index = self.cbxUsuario.currentIndex()
+    idUsuario = self.cbxUsuario.itemData(index)
+    return idUsuario
+
+    def obtenerRolSeleccionado(self):
+    index = self.cbxRol.currentIndex()
+    idRol = self.cbxRol.itemData(index)
+    return idRol
+
 
     def asignarRol(self, index):
-        sUsuario = self.cbxUsuario.itemData(index)
-        sRol = self.cbxRol.itemData(index)
-
-        Usuario_Rol.idUsuario = sUsuario
-        Usuario_Rol.idRol = sRol
+        Usuario_Rol.idUsuario = self.obtenerUsuarioSeleccionado()
+        Usuario_Rol.idRol = self.obtenerRolSeleccionado()
         DT_UsuarioRol.asignarRol(Usuario_Rol)
 
     def eliminarRolAsignado(self, index):
-        eUsuario = self.cbxUsuario.itemData(index)
-        eRol = self.cbxRol.itemData(index)
-
-        Usuario_Rol.idUsuario = eUsuario
-        Usuario_Rol.idRol = eRol
+        Usuario_Rol.idUsuario = self.obtenerUsuarioSeleccionado()
+        Usuario_Rol.idRol = self.obtenerRolSeleccionado()
         DT_UsuarioRol.eliminarUsuarioRol(Usuario_Rol)
 
     def listarRolesUsuario(self):
+        self.tableWidget.setRowCount(0)
         usuario_roles = DT_V_UsuarioRol.listarUsuarioRol()
         indexes = len(usuario_roles)
         self.tableWidget.setRowCount(indexes)
