@@ -15,8 +15,8 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
         self.llenarComboRol()
         self.llenarComboUsuario()
         self.listarRolesUsuario()
-        self.cbxRol.activated.connect(self.handleActivated)
         self.btnAsignarRol.clicked.connect(self.asignarRol)
+        self.btnEliminarRolAsignado.clicked.connect(self.eliminarRolAsignado)
 
     def llenarComboUsuario(self):
         users = DT_Usuario.listarUsuario()
@@ -27,21 +27,28 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
             print(f'Ocurrió una excepcion al recuperar usuarios {e}')
 
     def llenarComboRol(self):
-        roles = DT_Rol.listarRol()
+        rols = DT_Rol.listarRol()
         try:
-            for row in roles:
-                self.cbxRol.addItem(row.descripcion,row.idrol);
+            for a in rols:
+                self.cbxRol.addItem(a.descripcion, a.idrol)
         except Exception as e:
             print(f'Ocurrió una excepción {e}')
 
-    def asignarRol(self,index):
-        Usuario_Rol.idUsuario = self.cbxRol.itemData(index)
-        Usuario_Rol.idRol = self.cbxRol.itemData(index)
+    def asignarRol(self, index):
+        sUsuario = self.cbxUsuario.itemData(index)
+        sRol = self.cbxRol.itemData(index)
 
-        try:
-            self.dtr.DT_Rol.asignarRol(Usuario_Rol)
-        except Exception as e:
-            print(f'Ocurrió una excepcion al guardar: {e}')
+        Usuario_Rol.idUsuario = sUsuario
+        Usuario_Rol.idRol = sRol
+        DT_UsuarioRol.asignarRol(Usuario_Rol)
+
+    def eliminarRolAsignado(self, index):
+        eUsuario = self.cbxUsuario.itemData(index)
+        eRol = self.cbxRol.itemData(index)
+
+        Usuario_Rol.idUsuario = eUsuario
+        Usuario_Rol.idRol = eRol
+        DT_UsuarioRol.eliminarUsuarioRol(Usuario_Rol)
 
     def listarRolesUsuario(self):
         usuario_roles = DT_V_UsuarioRol.listarUsuarioRol()
@@ -56,6 +63,3 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
             self.tableWidget.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(row.descripcion))
 
 
-    def handleActivated(self, index):
-        print(self.cbxRol.itemText(index))
-        print(self.cbxRol.itemData(index))
