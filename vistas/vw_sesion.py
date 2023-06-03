@@ -1,5 +1,6 @@
 from PyQt6 import QtWidgets
 from vistas import vw_FrmSesion
+from vistas.mainWindow import MainWindow
 
 class vw_sesion_Widget(QtWidgets.QMainWindow,vw_FrmSesion.Ui_vw_sesion):
     def __init__(self,parent=None):
@@ -21,8 +22,15 @@ class vw_sesion_Widget(QtWidgets.QMainWindow,vw_FrmSesion.Ui_vw_sesion):
 
                 if result:
                     QMessageBox.information(self, "Login", "Inicio de sesión exitoso.")
+                    self.close()
+                    self.entrar()
                 else:
                     QMessageBox.warning(self, "Login", "Credenciales inválidas.")
 
         except pymysql.Error as e:
             print(f"Error al realizar la consulta: {e}")
+            
+       def entrar(self):
+       principal = MainWindow()
+       principal.show()
+    
