@@ -35,14 +35,14 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
             print(f'Ocurrió una excepción {e}')
     
     def obtenerUsuarioSeleccionado(self):
-    index = self.cbxUsuario.currentIndex()
-    idUsuario = self.cbxUsuario.itemData(index)
-    return idUsuario
+        index = self.cbxUsuario.currentIndex()
+        idUsuario = self.cbxUsuario.itemData(index)
+        return idUsuario
 
     def obtenerRolSeleccionado(self):
-    index = self.cbxRol.currentIndex()
-    idRol = self.cbxRol.itemData(index)
-    return idRol
+        index = self.cbxRol.currentIndex()
+        idRol = self.cbxRol.itemData(index)
+        return idRol
 
 
     def asignarRol(self, index):
