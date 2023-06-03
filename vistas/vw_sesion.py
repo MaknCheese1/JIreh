@@ -11,7 +11,8 @@ class vw_sesion_Widget(QtWidgets.QMainWindow,vw_FrmSesion.Ui_vw_sesion):
         self.setupUi(self)
         # LLamando la clase btn_iniciarSesion
         self.btn_iniciarSesion.clicked.connect(self.btnIniciarSesionClick)
-
+        self.showWindows = None
+        self.main = None
 
     def btnIniciarSesionClick(self):
 
@@ -24,11 +25,24 @@ class vw_sesion_Widget(QtWidgets.QMainWindow,vw_FrmSesion.Ui_vw_sesion):
                     cursor.execute(query, (username, password))
                     result = cursor.fetchone()
             if result:
-                principal = MainWindow()
-                principal.show()
+                self.Entrar()
+                self.Close()
             else:
                 QMessageBox.warning(self, "Login", "Credenciales inválidas.")
 
+def Entrar(self):
+        if self.showWindows is None:
+            self.main = mainWindow.MainWindow()
+            self.verticalLayout.addWidget(self.main)
+            self.showWindows = self.main
+        else:
+            if self.showWindows == self.main:
+                return self.main
+            else:
+                self.showWindows.close()
+                self.main = mainWindow.MainWindow()
+                self.verticalLayout.addWidget(self.main)
+                self.showWindows = self.main
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
