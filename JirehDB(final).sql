@@ -197,3 +197,8 @@ SELECT ur.idUsuarioRol, u.nombre, u.apellido, u.nombreusuario, r.descripcion
 from usuario u
 join usuario_rol ur on u.idusuario = ur.idUsuario 
 join rol r on r.idrol = ur.idRol
+
+/* ------------INSERTS---------------------------------------- */
+INSERT INTO `jirehdb`.`rol` (`descripcion`) VALUES ('ADMIN');
+INSERT INTO `jirehdb`.`rol` (`descripcion`) VALUES ('INVITADO');
+INSERT INTO `jirehdb`.`rol` (`descripcion`) VALUES ('NOOB');
