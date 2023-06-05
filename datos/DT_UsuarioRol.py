@@ -25,39 +25,35 @@ class DT_UsuarioRol:
 
     @classmethod
     def asignarRol(cls, usuario_rol):
-        with Conexion.getConnection() as conexion:
-            with Conexion.getCursor() as cursor:
-
-                try:
-
-                    print(f'Rol asignado: {usuario_rol.idUsuario, usuario_rol.idRol}')
-                    valores = (usuario_rol.idUsuario, usuario_rol.idRol)
-                    cursor.execute(cls._INSERT, valores)
-                    print(f'Rol insertado: {usuario_rol.idUsuario, usuario_rol.idRol}')
-                    conexion.commit()
-                    return cursor.rowcount
-                except Exception as e:
-                    print(f'Exception {e}')
+        cursor = Conexion.getConnection().cursor()
+        conexion = Conexion.getConnection()
+        try:
+            print(f'Rol asignado: {usuario_rol.idUsuario, usuario_rol.idRol}')
+            valores = (usuario_rol.idUsuario, usuario_rol.idRol)
+            cursor.execute(cls._INSERT, valores)
+            print(f'Rol insertado: {usuario_rol.idUsuario, usuario_rol.idRol}')
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'Exception {e}')
 
 
 
 
     @classmethod
     def eliminarUsuarioRol(cls, usuario_rol):
-        with Conexion.getConnection() as conexion:
-            with Conexion.getCursor() as cursor:
-                try:
-                    valores = (usuario_rol.idRol, usuario_rol.idUsuario)
-                    print("Eliminando Rol")
-                    cursor.execute(cls._DELETE,valores)
-                    print("Rol eliminado")
-                    conexion.commit()
-                    return cursor.rowcount
-                except Exception as e:
-                    print(f'Ocurrió un error al eliminar el rol: {e}')
-                    sys.exit()
-
-
+        cursor = Conexion.getConnection().cursor()
+        conexion = Conexion.getConnection()
+        try:
+            valores = (usuario_rol.idRol, usuario_rol.idUsuario)
+            print("Eliminando Rol")
+            cursor.execute(cls._DELETE,valores)
+            print("Rol eliminado")
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'Ocurrió un error al eliminar el rol: {e}')
+            sys.exit()
 
 if __name__ == '__main__':
     roles = DT_UsuarioRol.listarRol()

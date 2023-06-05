@@ -40,53 +40,47 @@ class DT_Usuario:
 
     @classmethod
     def guardarUsuario(cls, usuario):
-        with Conexion.getConnection() as conexion:
-            with Conexion.getCursor() as cursor:
+        cursor = Conexion.getConnection().cursor()
+        conexion = Conexion.getConnection()
+        try:
 
-                try:
-
-                    print(f'Usuario a insertar: {usuario}')
-                    valores = (usuario.nombre, usuario.apellido, usuario.nombreusuario, usuario.clave)
-                    cursor.execute(cls._INSERT, valores)
-                    print(f'Usuario insertado: {usuario}')
-                    conexion.commit()
-                    return cursor.rowcount
-                except Exception as e:
-                    print(f'Exception {e}')
+            print(f'Usuario a insertar: {usuario}')
+            valores = (usuario.nombre, usuario.apellido, usuario.nombreusuario, usuario.clave)
+            cursor.execute(cls._INSERT, valores)
+            print(f'Usuario insertado: {usuario}')
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'Exception {e}')
 
 
     @classmethod
     def actualizarUsuario(cls, usuario):
-
-        with Conexion.getConnection() as conexion:
-            with Conexion.getCursor() as cursor:
-                try:
-                    valores = (usuario.nombre, usuario.apellido, usuario.nombreusuario, usuario.clave, usuario.idusuario)
-                    cursor.execute(cls._UPDATE, valores)
-                    print('Actualizando usuario')
-                    conexion.commit()
-                    return cursor.rowcount
-                except Exception as e:
-                    print(f'Excepción al editar: {e.__traceback__}')
+        cursor = Conexion.getConnection().cursor()
+        conexion = Conexion.getConnection()
+        try:
+            valores = (usuario.nombre, usuario.apellido, usuario.nombreusuario, usuario.clave, usuario.idusuario)
+            cursor.execute(cls._UPDATE, valores)
+            print('Actualizando usuario')
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'Excepción al editar: {e.__traceback__}')
 
     @classmethod
     def eliminarUsuario(cls, usuario):
-        with Conexion.getConnection() as conexion:
-            with Conexion.getCursor() as cursor:
-                if cursor is None:
-                    print('cerrado')
-                try:
-                    valores = (usuario.idusuario)
-                    print("Eliminando Usuario")
-                    cursor.execute(cls._DELETE,valores)
-                    print("Usuario eliminado")
-                    conexion.commit()
-                    return cursor.rowcount
-                except Exception as e:
-                    print(f'Ocurrió un error al eliminar el usuario: {e}')
-                    sys.exit()
-
-
+        cursor = Conexion.getConnection().cursor()
+        conexion = Conexion.getConnection()
+        try:
+            valores = (usuario.idusuario)
+            print("Eliminando Usuario")
+            cursor.execute(cls._DELETE,valores)
+            print("Usuario eliminado")
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'Ocurrió un error al eliminar el usuario: {e}')
+            sys.exit()
 
 if __name__ == '__main__':
     users = DT_Usuario.listarUsuario()

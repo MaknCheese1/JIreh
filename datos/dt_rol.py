@@ -25,7 +25,7 @@ class DT_Rol:
 
     @classmethod
     def guardarRol(cls, rol):
-        with Conexion.getConnection():
+        with Conexion.getConnection() as conexion:
             with Conexion.getCursor() as cursor:
 
                 try:
@@ -38,6 +38,8 @@ class DT_Rol:
                     return cursor.rowcount
                 except Exception as e:
                     print(f'Exception {e}')
+                finally:
+                    cursor.close()
 
 
     @classmethod
@@ -53,6 +55,8 @@ class DT_Rol:
                     return cursor.rowcount
                 except Exception as e:
                     print(f'Excepción al editar: {e.__traceback__}')
+                finally:
+                    cursor.close()
 
     @classmethod
     def eliminarRol(cls, rol):
@@ -68,6 +72,8 @@ class DT_Rol:
                 except Exception as e:
                     print(f'Ocurrió un error al eliminar el rol: {e}')
                     sys.exit()
+                finally:
+                    cursor.close()
 
 
 
