@@ -42,7 +42,7 @@ class vw_lista_usuarios_Widget(QtWidgets.QMainWindow, vw_lista_usuarios.Ui_frmLi
 
 
     def listarUsuarios(self):
-         self.tw_usuarios.setRowCount(0)
+        self.tw_usuarios.setRowCount(0)
         usuarios = DT_Usuario.listarUsuario()
         indexes = len(usuarios)
         self.tw_usuarios.setRowCount(indexes)
