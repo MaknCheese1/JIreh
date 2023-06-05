@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import QApplication
 import sys
 from datos.conexion import Conexion
 from PyQt6.QtWidgets import QMessageBox
+from vistas import mainWindow
 from mainWindow import MainWindow
 class vw_sesion_Widget(QtWidgets.QMainWindow,vw_FrmSesion.Ui_vw_sesion):
     def __init__(self,parent=None):
