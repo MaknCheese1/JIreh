@@ -12,7 +12,7 @@ import vw_lista_usuariosW
 import  vw_frmGuardarUsuario
 import  vw_frmAsignarRol
 class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
-    def __init__(self,parent = None):
+    def __init__(self, parent = None):
         super(MainWindow,self).__init__(parent)
         self.setupUi(self)
         # Validando None a mis variables

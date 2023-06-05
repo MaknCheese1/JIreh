@@ -56,7 +56,6 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
         DT_UsuarioRol.eliminarUsuarioRol(Usuario_Rol)
 
     def listarRolesUsuario(self):
-        self.tableWidget.setRowCount(0)
         usuario_roles = DT_V_UsuarioRol.listarUsuarioRol()
         indexes = len(usuario_roles)
         self.tableWidget.setRowCount(indexes)
