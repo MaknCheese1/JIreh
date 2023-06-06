@@ -68,9 +68,11 @@ class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow, vw_FrmMenuDetalle.Ui_v
 
     def llenarComboMenuTipo(self):
         menuTipos = Dt_MenuTipo.listarMenuTipo()
-        for mt in menuTipos:
+        try:
+          for mt in menuTipos:
             self.cmb_MenutipoDet.addItem(mt.Nombre, mt.Menu_tipoID)
-
+        except Exception as e:
+            print(f'Ocurrió una excepción al recuperar MenuTipo: {e}')
 
     def obtenermenutipoSeleccionado(self):
         index = self.cmb_MenutipDet.currentIndex()
@@ -84,6 +86,8 @@ class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow, vw_FrmMenuDetalle.Ui_v
         precioMenuDetalleEdit = self.txt_precioMenuDet.text()
 
         menuDetalle = MenuDetalle()
+        menuDetalle.MenuID = self.obtenermenuSeleccionado()
+        menuDetalle.Menu_tipoID = self.obtenermenutipoSeleccionado()
         menuDetalle.Menu_detalleID = menudetalleidEdit
         menuDetalle.Nombre = nombreMenuDetalleEdit
         menuDetalle.Descripcion = descripcionMenuDetalleEdit
@@ -94,6 +98,8 @@ class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow, vw_FrmMenuDetalle.Ui_v
         menuDetalle = MenuDetalle()
         menuDetalle.Menu_detalleID = self.txt_idMenuDet.text()
         Dt_MenuDetalle.eliminarMenuDetalle(menuDetalle)
+        self.listarClient()
+        self.limpiarCampos()
 
     def limpiarCampos(self):
         self.txt_idMenuDet.setText("")
