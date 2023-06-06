@@ -18,11 +18,12 @@ class VW_frmGuardarUsuario(QtWidgets.QMainWindow, frm_GuardarUsuario.Ui_MainWind
         nombre_usuario = self.txtUserName.text()
         clave = self.txtClave.text()
 
-        Usuario.nombre = nombre
-        Usuario.apellido = apellido
-        Usuario.nombreusuario = nombre_usuario
-        Usuario.clave = clave
-        DT_Usuario.guardarUsuario(Usuario)
+        usuario = Usuario()
+        usuario.nombre = nombre
+        usuario.apellido = apellido
+        usuario.nombreusuario = nombre_usuario
+        usuario.clave = clave
+        DT_Usuario.guardarUsuario(usuario)
         #Limpiar campos
         self.limpiarcampos()
 

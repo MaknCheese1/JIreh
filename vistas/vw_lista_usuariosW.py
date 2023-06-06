@@ -15,8 +15,8 @@ class vw_lista_usuarios_Widget(QtWidgets.QMainWindow, vw_lista_usuarios.Ui_frmLi
     def __init__(self, parent=None):
         super(vw_lista_usuarios_Widget,self).__init__(parent)
         self.setupUi(self)
+        self.listarUsuario()
         self.txtIdUsuarioEdit.hide()
-        self.listarUsuarios()
         self.btnBuscar.clicked.connect(self.buscarUsuario)
         self.tw_usuarios.clicked.connect(self.clickTablaCelda)
         self.btnEditarUsuario.clicked.connect(self.actualizarUsuarioClick)
@@ -41,18 +41,17 @@ class vw_lista_usuarios_Widget(QtWidgets.QMainWindow, vw_lista_usuarios.Ui_frmLi
             tablerow += 1
 
 
-    def listarUsuarios(self):
-        self.tw_usuarios.setRowCount(0)
+    def listarUsuario(self):
         usuarios = DT_Usuario.listarUsuario()
         indexes = len(usuarios)
         self.tw_usuarios.setRowCount(indexes)
         tablerow = 0
-        for row in usuarios:
-            self.tw_usuarios.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row.idusuario)))
-            self.tw_usuarios.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(row.nombre))
-            self.tw_usuarios.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(row.apellido))
-            self.tw_usuarios.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(row.nombreusuario))
-            self.tw_usuarios.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row.fecha_creacion)))
+        for usuario in usuarios:
+            self.tw_usuarios.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(usuario.idusuario)))
+            self.tw_usuarios.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(usuario.nombre)))
+            self.tw_usuarios.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(usuario.apellido)))
+            self.tw_usuarios.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(usuario.nombreusuario)))
+            self.tw_usuarios.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(usuario.fecha_creacion)))
             tablerow += 1
 
     def clickTablaCelda(self):
@@ -78,18 +77,22 @@ class vw_lista_usuarios_Widget(QtWidgets.QMainWindow, vw_lista_usuarios.Ui_frmLi
         clave = self.txtClaveEdit.text()
         id_usuario = self.txtIdUsuarioEdit.text()
 
-        Usuario.nombre = nombre
-        Usuario.apellido = apellido
-        Usuario.nombreusuario = nombre_usuario
-        Usuario.clave = clave
-        Usuario.idusuario = id_usuario
-        DT_Usuario.actualizarUsuario(Usuario)
+        usuario = Usuario()
+        usuario.nombre = nombre
+        usuario.apellido = apellido
+        usuario.nombreusuario = nombre_usuario
+        usuario.clave = clave
+        usuario.idusuario = id_usuario
+        DT_Usuario.actualizarUsuario(usuario)
+
+        self.listarUsuario()
         # Limpiar campos
         self.limpiarcampos()
 
     def eliminarUsuario(self):
         Usuario.idusuario = self.txtIdUsuarioEdit.text()
         DT_Usuario.eliminarUsuario(Usuario)
+        self.listarUsuario()
         self.limpiarcampos()
 
 
