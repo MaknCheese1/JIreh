@@ -147,7 +147,7 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</iconset>
+       <normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_guardarMenu">
@@ -179,7 +179,7 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</iconset>
+       <normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_editarMenu">
@@ -211,7 +211,7 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</iconset>
+       <normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_eliminarMenu">
@@ -243,7 +243,7 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</iconset>
+       <normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</normaloff>../../CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</iconset>
      </property>
     </widget>
    </widget>
@@ -275,12 +275,12 @@ border-bottom-left-radius:20px;
      </column>
      <column>
       <property name="text">
-       <string>Nombre</string>
+       <string>RestauranteID</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>RestauranteID</string>
+       <string>Nombre</string>
       </property>
      </column>
      <column>
