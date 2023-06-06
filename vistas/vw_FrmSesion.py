@@ -63,6 +63,7 @@ class Ui_vw_sesion(object):
 "border:none;\n"
 "")
         self.txt_passworSesion.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.txt_passworSesion.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.txt_passworSesion.setObjectName("txt_passworSesion")
         self.btn_iniciarSesion = QtWidgets.QPushButton(parent=self.frame)
         self.btn_iniciarSesion.setGeometry(QtCore.QRect(290, 560, 191, 71))

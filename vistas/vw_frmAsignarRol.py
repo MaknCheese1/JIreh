@@ -46,9 +46,11 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
 
 
     def asignarRol(self, index):
-        Usuario_Rol.idUsuario = self.obtenerUsuarioSeleccionado()
-        Usuario_Rol.idRol = self.obtenerRolSeleccionado()
-        DT_UsuarioRol.asignarRol(Usuario_Rol)
+        usuarioRol = Usuario_Rol()
+        usuarioRol.idUsuario = self.obtenerUsuarioSeleccionado()
+        usuarioRol.idRol = self.obtenerRolSeleccionado()
+        DT_UsuarioRol.asignarRol(usuarioRol)
+        self.listarRolesUsuario()
 
     def eliminarRolAsignado(self, index):
         Usuario_Rol.idUsuario = self.obtenerUsuarioSeleccionado()
@@ -65,6 +67,7 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
             self.tableWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row.nombre)))
             self.tableWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(row.apellido)))
             self.tableWidget.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(row.nombreusuario)))
-            self.tableWidget.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(row.descripcion))
+            self.tableWidget.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row.descripcion)))
+            tablerow += 1
 
 
