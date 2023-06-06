@@ -4,7 +4,7 @@ from entidades.menu import Menu
 
 class Dt_Menu:
     _SELECT = 'SELECT * FROM JirehDB.Menu WHERE Estado <> 3'
-    _INSERT = 'INSERT INTO JirehDB.Menu(MenuID,RestauranteID,Nombre_menu,Descripcion,Estado) values(MenuID=%s,RestauranteID=%s,Nombre_menu=%s,Descripcion=%s,1)'
+    _INSERT = 'INSERT INTO JirehDB.Menu(RestauranteID,Nombre_menu,Descripcion,Estado) values(%s,%s,%s,1)'
     _UPDATE = 'UPDATE Menu set RestauranteID=%s,Nombre_menu=%s,Descripcion=%s where MenuID=%s'
     _DELETE = 'UPDATE Menu set Estado=3 where MenuID=%s'
 
@@ -28,7 +28,7 @@ class Dt_Menu:
 
         try:
             print(f'Menu al insertar: {menu}')
-            valores = (menu.MenuID,menu.RestauranteID,menu.Nombre_menu,menu.Descripcion)
+            valores = (menu.RestauranteID,menu.Nombre_menu,menu.Descripcion)
             cursor.execute(cls._INSERT,valores)
             print(f'Menu insertado:{menu}')
             conexion.commit()
