@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
+    <width>895</width>
     <height>614</height>
    </rect>
   </property>
@@ -22,6 +22,9 @@
       <width>941</width>
       <height>361</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 190, 111);</string>
     </property>
     <property name="title">
      <string>Registro Restaurante</string>
@@ -126,6 +129,11 @@
        <height>25</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:none;</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="txt_nombreRest">
      <property name="geometry">
@@ -135,6 +143,11 @@
        <width>291</width>
        <height>25</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:none;</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="txt_telefonoRest">
@@ -146,6 +159,11 @@
        <height>25</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:none;</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="txt_correoRest">
      <property name="geometry">
@@ -155,6 +173,11 @@
        <width>291</width>
        <height>25</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:none;</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="txt_direccionRest">
@@ -166,6 +189,11 @@
        <height>25</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:none;</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="txt_rucRest">
      <property name="geometry">
@@ -176,6 +204,11 @@
        <height>25</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:none;</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="txt_pagWebrest">
      <property name="geometry">
@@ -185,6 +218,11 @@
        <width>291</width>
        <height>25</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:none;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_nuevoRest">
@@ -216,7 +254,7 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/agregar-documento.png</iconset>
+       <normaloff>../image/agregar-documento.png</normaloff>../image/agregar-documento.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_guardarRest">
@@ -248,7 +286,7 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/flecha-de-circulo-de-disquete-a-la-derecha.png</iconset>
+       <normaloff>../image/flecha-de-circulo-de-disquete-a-la-derecha.png</normaloff>../image/flecha-de-circulo-de-disquete-a-la-derecha.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_editarRest">
@@ -280,14 +318,14 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/editar.png</iconset>
+       <normaloff>../image/editar.png</normaloff>../image/editar.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_eliminarRest">
      <property name="geometry">
       <rect>
-       <x>580</x>
-       <y>240</y>
+       <x>590</x>
+       <y>230</y>
        <width>101</width>
        <height>41</height>
       </rect>
@@ -312,7 +350,23 @@ border-bottom-left-radius:20px;
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</normaloff>../../../Descargas/CRUD Iconos-20230506T130125Z-001/CRUD Iconos/eliminar-documento.png</iconset>
+       <normaloff>../image/basura.png</normaloff>../image/basura.png</iconset>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>210</y>
+       <width>121</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../image/restaurante(4).png</pixmap>
      </property>
     </widget>
    </widget>
@@ -324,6 +378,9 @@ border-bottom-left-radius:20px;
       <width>941</width>
       <height>361</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(143, 240, 164);</string>
     </property>
     <property name="title">
      <string/>
