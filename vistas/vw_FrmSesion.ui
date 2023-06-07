@@ -61,7 +61,7 @@ border:none</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../../Descargas/hamburguesa(1).png</pixmap>
+        <pixmap>../image/hamburguesa(1).png</pixmap>
        </property>
       </widget>
       <widget class="QLabel" name="label">

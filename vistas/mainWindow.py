@@ -3,7 +3,7 @@ from PyQt6 import (QtWidgets)
 from PyQt6.QtWidgets import QApplication
 from vistas import vw_FrmPrincipal
 import vw_cliente
-import vw_restaurante
+import vw_restuarante
 import vw_menuDetalle
 import  vw_menuTipo
 import  vw_proveedor
@@ -68,7 +68,7 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
 
     def loadRest(self):
         if self.showWindows is None:
-            self.lista_rest = vw_restaurante.vw_listar_restaurantes_Widget()
+            self.lista_rest = vw_restuarante.vw_listar_Restaurante_Widget()
             self.verticalLayout.addWidget(self.lista_rest)
             self.showWindows = self.lista_rest
         else:
@@ -76,7 +76,7 @@ class MainWindow(QtWidgets.QMainWindow,vw_FrmPrincipal.Ui_vw_principal):
                 return self.lista_rest
             else:
                 self.showWindows.close()
-                self.lista_rest = vw_restaurante.vw_listar_restaurantes_Widget()
+                self.lista_rest = vw_restuarante.vw_listar_Restaurante_Widget()
                 self.verticalLayout.addWidget(self.lista_rest)
                 self.showWindows = self.lista_rest
 
