@@ -1,26 +1,27 @@
-import sys
 from PyQt6 import QtWidgets
-from vistas import vw_FrmMenuDetalle
+from vistas import  vw_FrmMenuDetalle
+
 from datos.dt_MenuDetalle import Dt_MenuDetalle
 from entidades.menuDetalle import MenuDetalle
 from datos.dt_menu import Dt_Menu
 from datos.dt_MenuTipo import Dt_MenuTipo
 
-class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow, vw_FrmMenuDetalle.Ui_vw_menuDetalle):
-    def __init__(self, parent=None):
+
+class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow,vw_FrmMenuDetalle.Ui_vw_menuDetalle):
+    def __init__(self,parent = None):
         super(vw_listar_MenuDetalle_Widget, self).__init__(parent)
         self.setupUi(self)
+        self.txt_idMenuDet.setEnabled(False)
+
         self.llenarComboMenu()
         self.llenarComboMenuTipo()
 
-        # Llamando datos en la tabla
         self.listarMenuDetalle()
-        # Llamando a la función btnGuardar
-        self.btn_guardarMenuDet.clicked.connect(self.btnGuardarMenuDetClick)
-        # Llamando a la función clickTabla
-        self.jtable_MenuDet.clicked.connect(self.clickTablaCeldaC)
-        # Llamando a la función limpiarCampos
+        self.jtable_MenuDet.clicked.connect(self.clickTablaCeldaMt)
         self.btn_nuevoMenuDet.clicked.connect(self.limpiarCampos)
+        self.btn_guardarMenuDet.clicked.connect(self.btnGuardarMenuDetalleClick)
+        self.btn_editarMenuDet.clicked.connect(self.btnActualizarMenuDetalleClick)
+        self.btn_eliminarMenuDet.clicked.connect(self.eliminarMenuDetClick)
 
     def listarMenuDetalle(self):
         menuDetalles = Dt_MenuDetalle.listarMenuDetalle()
@@ -37,69 +38,73 @@ class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow, vw_FrmMenuDetalle.Ui_v
             self.jtable_MenuDet.setItem(fila, 5, QtWidgets.QTableWidgetItem(str(filaMenu.Precio)))
             fila += 1
 
-    def btnGuardarMenuDetClick(self):
+
+    def btnGuardarMenuDetalleClick(self):
         nombreMenuDetalle = self.txt_nombreMenuDet.text()
         descripcionMenuDetalle = self.txt_descMenuDet.text()
         precioMenuDetalle = self.txt_precioMenuDet.text()
 
-        menuID = self.cmb_menuDetalle.currentData()
-        menuTipoID = self.cmb_MenutipoDet.currentData()
 
-        menuDetalle = MenuDetalle()
-        menuDetalle.MenuID = menuID
-        menuDetalle.Menu_tipoID = menuTipoID
-        menuDetalle.Nombre = nombreMenuDetalle
-        menuDetalle.Descripcion = descripcionMenuDetalle
-        menuDetalle.Precio = precioMenuDetalle
-        Dt_MenuDetalle.guardarMenuDetalle(menuDetalle)
+        menuDet = MenuDetalle()
+        menuDet.MenuID = self.obtenerMenuSeleccionado()
+        menuDet.Menu_tipoID = self.obtenerMenuTipo()
+        menuDet.Nombre = nombreMenuDetalle
+        menuDet.Descripcion = descripcionMenuDetalle
+        menuDet.Precio = precioMenuDetalle
+        Dt_MenuDetalle.guardarMenuDetalle(menuDet)
+        self.listarMenuDetalle()
+        self.limpiarCampos()
 
-    def llenarComboMenu(self):
-        Menu = Dt_Menu.listarMenu()
-        try:
-            for menu in Menu:
-                self.cmb_menuDetalle.addItem(menu.Nombre, menu.MenuID)
-        except Exception as e:
-            print(f'Ocurrió una excepción al recuperar Menu: {e}')
+    def btnActualizarMenuDetalleClick(self):
+        nombreMenuDetalleedit = self.txt_nombreMenuDet.text()
+        descripcionMenuDetalledit = self.txt_descMenuDet.text()
+        precioMenuDetalleedit = self.txt_precioMenuDet.text()
+        idMenuDet = self.txt_idMenuDet
 
-    def obtenermenuSeleccionado(self):
-        index = self.cmb_menuDetalle.currentIndex()
-        idMenu = self.cmb_menuDetalle.itemData(index)
-        return idMenu
 
-    def llenarComboMenuTipo(self):
-        menuTipos = Dt_MenuTipo.listarMenuTipo()
-        try:
-          for mt in menuTipos:
-            self.cmb_MenutipoDet.addItem(mt.Nombre, mt.Menu_tipoID)
-        except Exception as e:
-            print(f'Ocurrió una excepción al recuperar MenuTipo: {e}')
-
-    def obtenermenutipoSeleccionado(self):
-        index = self.cmb_MenutipDet.currentIndex()
-        idMenutipo = self.cmb_MenutipDet.itemData(index)
-        return idMenutipo
-
-    def btnActualizarMenuDetClick(self):
-        menudetalleidEdit = self.txt_idMenuDet.text()
-        nombreMenuDetalleEdit = self.txt_nombreMenuDet.text()
-        descripcionMenuDetalleEdit = self.txt_descMenuDet.text()
-        precioMenuDetalleEdit = self.txt_precioMenuDet.text()
-
-        menuDetalle = MenuDetalle()
-        menuDetalle.MenuID = self.obtenermenuSeleccionado()
-        menuDetalle.Menu_tipoID = self.obtenermenutipoSeleccionado()
-        menuDetalle.Menu_detalleID = menudetalleidEdit
-        menuDetalle.Nombre = nombreMenuDetalleEdit
-        menuDetalle.Descripcion = descripcionMenuDetalleEdit
-        menuDetalle.Precio = precioMenuDetalleEdit
-        Dt_MenuDetalle.actualizarMenuDetalle(menuDetalle)
+        menuDet = MenuDetalle()
+        menuDet.MenuID = self.obtenerMenuSeleccionado()
+        menuDet.Menu_tipoID = self.obtenerMenuTipo()
+        menuDet.Nombre = nombreMenuDetalleedit
+        menuDet.Descripcion = descripcionMenuDetalledit
+        menuDet.Precio = precioMenuDetalleedit
+        menuDet.Menu_detalleID = idMenuDet
+        Dt_MenuDetalle.actualizarMenuDetalle(menuDet)
+        self.listarMenuDetalle()
+        self.limpiarCampos()
 
     def eliminarMenuDetClick(self):
         menuDetalle = MenuDetalle()
         menuDetalle.Menu_detalleID = self.txt_idMenuDet.text()
         Dt_MenuDetalle.eliminarMenuDetalle(menuDetalle)
-        self.listarClient()
+        self.listarMenuDetalle()
         self.limpiarCampos()
+
+    def llenarComboMenu(self):
+        menu = Dt_Menu.listarMenu()
+        try:
+            for mu in menu:
+                self.cmb_menuDetalle.addItem(mu.Nombre_menu,mu.MenuID)
+        except Exception as e:
+            print(f'Ocurrio  una excepcion al recuperar usuarios: {e}')
+
+    def obtenerMenuSeleccionado(self):
+        index = self.cmb_menuDetalle.currentIndex()
+        idMenu = self.cmb_menuDetalle.itemData(index)
+        return idMenu
+
+    def llenarComboMenuTipo(self):
+        menuDet = Dt_MenuDetalle.listarMenuDetalle()
+        try:
+            for mt in menuDet:
+                self.cmb_MenutipoDet.addItem(mt.Nombre,mt.Menu_tipoID)
+        except Exception as e:
+            print(f'Ocurrio una excepcion al recuperar menudetalle: {e}')
+
+    def obtenerMenuTipo(self):
+        index = self.cmb_MenutipoDet.currentIndex()
+        idMenuTip = self.cmb_MenutipoDet.itemData(index)
+        return idMenuTip
 
     def limpiarCampos(self):
         self.txt_idMenuDet.setText("")
@@ -107,7 +112,7 @@ class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow, vw_FrmMenuDetalle.Ui_v
         self.txt_descMenuDet.setText("")
         self.txt_precioMenuDet.setText("")
 
-    def clickTablaCeldaC(self):
+    def clickTablaCeldaMt(self):
         # Obteniendo fila
         fila = self.jtable_MenuDet.currentRow()
         # Obteniendo los valores de la tabla
@@ -123,8 +128,5 @@ class vw_listar_MenuDetalle_Widget(QtWidgets.QMainWindow, vw_FrmMenuDetalle.Ui_v
         self.txt_precioMenuDet.setText(precio)
 
 
-if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    ventana_menuDetalle = vw_listar_MenuDetalle_Widget()
-    ventana_menuDetalle.show()
-    sys.exit(app.exec())
+
+
